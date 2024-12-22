@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: demojwt
+  datasource:
+    url: jdbc:mysql://localhost:3307/uniclub
+    username: root
+    password: admin123
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+jwt:
+  key: JWtbxQTwEO2oSPgo0uBtnBrucw0wmEZNO//1Bhd+qxw=
