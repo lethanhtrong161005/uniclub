@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity(name="user")
+@Data
 public class UserEntity {
 
     @Id
@@ -30,45 +31,4 @@ public class UserEntity {
     @OneToMany(mappedBy = "role")
     private List<UserEntity> users;
      */
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public RoleEntity getRole() {
-        return role;
-    }
-
-    public void setRole(RoleEntity role) {
-        this.role = role;
-    }
-
 }

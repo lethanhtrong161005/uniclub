@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/login") // lỗi cor
-@CrossOrigin
 public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @PostMapping
+    @   PostMapping
     public ResponseEntity<?> login(@RequestParam String email, @RequestParam String password) {
         String token = loginService.login(email, password);
         BaseResponse response = new BaseResponse();

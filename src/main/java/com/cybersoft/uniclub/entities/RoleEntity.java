@@ -6,6 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Entity(name="roles")
+@Data
 public class RoleEntity {
 
     @Id
@@ -18,27 +19,4 @@ public class RoleEntity {
     @OneToMany(mappedBy = "role")
     private List<UserEntity> users;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<UserEntity> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<UserEntity> users) {
-        this.users = users;
-    }
 }
