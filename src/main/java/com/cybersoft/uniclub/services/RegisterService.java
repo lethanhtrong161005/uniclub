@@ -1,6 +1,7 @@
 package com.cybersoft.uniclub.services;
 
 import com.cybersoft.uniclub.entities.UserEntity;
+import com.cybersoft.uniclub.exception.InsertException;
 import com.cybersoft.uniclub.repository.UserRepository;
 import com.cybersoft.uniclub.request.RegisterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,7 @@ public class RegisterService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public boolean insertUser(RegisterRequest registerRequest) {
-        boolean result = false;
+    public void insertUser(RegisterRequest registerRequest) {
         try{ // grpc => binary giao tiếp giữa server với server
             String encryptedPass = passwordEncoder.encode(registerRequest.getPassword());
 
@@ -25,11 +25,9 @@ public class RegisterService {
             user.setEmail(registerRequest.getEmail());
 
             userRepository.save(user);
-            result = true;
         }catch (Exception e){
-            System.out.println("Kiem Tra" + e.getMessage());
+            throw new InsertException(e.getMessage());
         }
-        return result;
     }
 
 }

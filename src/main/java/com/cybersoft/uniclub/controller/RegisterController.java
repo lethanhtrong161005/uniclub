@@ -19,12 +19,11 @@ public class RegisterController {
     private RegisterService registerService;
     @PostMapping
     public ResponseEntity<?> registerAccount(@Valid @RequestBody RegisterRequest registerRequest) {
-        boolean isSuccess = registerService.insertUser(registerRequest);
-
+        registerService.insertUser(registerRequest);
         BaseResponse baseResponse = new BaseResponse();
-        baseResponse.setCode(isSuccess ? 200 : 400);
-        baseResponse.setMessage(isSuccess ? "Success" : "Fail");
-        baseResponse.setData(isSuccess);
+        baseResponse.setCode(200);
+        baseResponse.setMessage("Success");
+        baseResponse.setData(true);
 
         return ResponseEntity.ok(baseResponse);
     }
